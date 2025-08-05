@@ -7,13 +7,13 @@ const url = 'https://cors-anywhere.herokuapp.com/https://course-api.com/react-to
 function App() {
   const [loading , setLoading]=useState(true);
   const [tours,setTours]=useState([])
-
+// for not intersted button 
   const removeTour = (id) => {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTours(newTours);
   }
 
-
+// fetching the data in async
   const fetchTours= async()=>{
     setLoading(true);
     try{
@@ -28,10 +28,11 @@ function App() {
     }
     
   }
+  // calling fetch the data when the screen render 
   useEffect(()=>{
     fetchTours();
   },[]);
-  
+  // if it is loading show a loding componet
   if(loading){
     return(
       <main>
@@ -40,6 +41,7 @@ function App() {
     );
     
   }
+  // else show the tour and passing the removetour(not intersted) to the child componet
   return <main>
     <Tours tours={tours} removeTour={removeTour}/>
   </main>

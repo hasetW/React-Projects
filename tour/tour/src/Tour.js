@@ -23,7 +23,7 @@ const Tour = ( tour, removeTour) => {
           }}> {readmore ? 'show less' : 'show more'}</button>
          
         </p>
-        <button className='delete-btn' onClick={()=>{removeTour(tour.id)}} 
+        <button className='delete-btn' onClick={()=>removeTour(tour.id)}
           >not intersted
         </button>
       </footer>
