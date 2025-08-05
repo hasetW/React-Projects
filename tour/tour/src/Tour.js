@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Tour = (tour) => {
   return (
-    <article>
-    <p>{tour.name}</p>
+    <article className='single-tour'>
+      <img src={tour.image} alt={tour.name}/>
+      <footer>
+        <div>
+          
+        </div>
+      </footer>
+
   </article>
   );
   
