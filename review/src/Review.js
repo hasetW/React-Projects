@@ -6,17 +6,23 @@ import { GrPrevious } from "react-icons/gr";
 const Review = () => {
   const [currentItem , setcurrentItem]=useState(0);
   const [person,setperson]=useState({})
+  // get the person from the array
   const showperson = (index) =>{
       setperson(people[index]);
   }
+  // increase the index each time it got clicked to get the next person
   const increase=()=>{
     setcurrentItem((prev)=> prev< people.length-1?prev+1:0);
-     
   }
- const decrease=()=>{
-  setcurrentItem((prev)=>prev>0?prev-1:people.length-1)
- }
-
+  // decrease the index each time it got clicked to get the pervious person
+  const decrease=()=>{
+    setcurrentItem((prev)=>prev>0?prev-1:people.length-1)
+  }
+  const random=()=>{
+    setcurrentItem(Math.floor(Math.random() * people.length)
+)
+  }
+  // render each time currentitem changes
   useEffect(
   ()=> {showperson(currentItem);},[currentItem]);
   return <section className='review'>
@@ -31,6 +37,7 @@ const Review = () => {
       <GrPrevious className='prev-btn' onClick={()=>{decrease()}} />
       <GrNext className='next-btn' onClick={()=>{increase()}}/>
     </div>
+    <button className='random-btn' onClick={()=>random()}>surprize me</button>
 
   </section>;
 };
