@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import people from './data';
-import { MdNavigateNext } from "react-icons/md";
-
+import { GrNext } from "react-icons/gr";
+import { GrPrevious } from "react-icons/gr";
 
 const Review = () => {
   const [currentItem , setcurrentItem]=useState(0);
   const [person,setperson]=useState({})
   const showperson = (index) =>{
       setperson(people[index]);
-      return console.log(person)
   }
   const increase=()=>{
     setcurrentItem((prev)=> prev< people.length-1?prev+1:0);
@@ -21,10 +20,17 @@ const Review = () => {
   useEffect(
   ()=> {showperson(currentItem);},[currentItem]);
   return <section className='review'>
-    <img src={person.image} alt='name' className='person-img'/>
-    <h3>{person.name}</h3>
-    <p>{person.text}</p>
-    <MdNavigateNext  onClick={()=>{increase()}}/>
+    <div className='img-container'>
+      <img src={person.image} alt='name' className='person-img '/>
+
+    </div>
+    <h3 className='author'>{person.name}</h3>
+    <h4 className='job'>{person.job}</h4>
+    <p className='info'>{person.text}</p>
+    <div>
+      <GrPrevious className='prev-btn' onClick={()=>{decrease()}} />
+      <GrNext className='next-btn' onClick={()=>{increase()}}/>
+    </div>
 
   </section>;
 };
