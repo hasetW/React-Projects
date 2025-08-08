@@ -4,7 +4,7 @@ const question = (question) => {
         <article>
             <div>
                 <h4>{question.title}</h4>
-                <button className='btn'></button>
+                <button className='btn'>+</button>
             </div>
             
             
