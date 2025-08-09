@@ -4,7 +4,12 @@ import Categories from './categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
-}
+  return <section className='menu'>
+    {items.map((item)=>{
+      return <Menu key={item.id} {...item}/>
 
+    })} 
+  </section>
+  
+}
 export default App;
