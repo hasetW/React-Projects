@@ -5,7 +5,7 @@ import items from './data';
 
 function App() {
   const [menuItems, setMenuItems] = useState(items);
-  const [categories, setCategories] = useState([]); // fixed spelling
+  const [categories, setCategories] = useState([]); 
 
   const filterMenu = (category) => {
     if (category === 'all') {
