@@ -4,27 +4,30 @@ import Categories from './categories';
 import items from './data';
 
 function App() {
-  const [menuItems,setmenuItem]=useState(items);
-  const [categories,setCatagories]=useState([]);
+  const [menuItems, setMenuItems] = useState(items);
+  const [categories, setCategories] = useState([]); // fixed spelling
 
-  const filtermenu=(category)=>{
-    const newmenu= items.filter((items)=>items.category ===category)
-    setmenuItem(newmenu);
-  }
-  return(
-  <main>
-    <section className='menu section'>
-      <div className='title'>
-        <h2>our menu</h2>
-      </div>
-      <div className='underline'></div>
-      <Categories/>
-      <Menu items={menuItems}/>
-    
-    </section>
+  const filterMenu = (category) => {
+    if (category === 'all') {
+      setMenuItems(items);
+      return;
+    }
+    const newMenu = items.filter((item) => item.category === category);
+    setMenuItems(newMenu);
+  };
 
-  </main>
-  )
-  
+  return (
+    <main>
+      <section className='menu section'>
+        <div className='title'>
+          <h2>our menu</h2>
+          <div className='underline'></div>
+        </div>
+        <Categories filterMenu={filterMenu} />
+        <Menu items={menuItems} />
+      </section>
+    </main>
+  );
 }
+
 export default App;
